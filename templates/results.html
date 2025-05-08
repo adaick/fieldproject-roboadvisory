@@ -1,0 +1,91 @@
+<!--
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Apr 20 13:30:48 2025
+
+@author: adars
+"""
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio Results</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body class="container mt-5">
+  <h2>Hello {{ name or 'Investor' }}!</h2>
+  <p><strong>Strategy Selected:</strong> {{ strategy }}</p>
+  <p><strong>Expected Return:</strong> {{ mu }}%</p>
+  <p><strong>Risk (σ):</strong> {{ sigma }}%</p>
+  <p><strong>Sharpe Ratio:</strong> {{ sharpe }}</p>
+
+  <h3>Portfolio Allocation</h3>
+  <ul class="list-group mb-4">
+    {% for etf, weight in weights.items() %}
+      <li class="list-group-item">{{ etf }}: {{ weight }}%</li>
+    {% endfor %}
+  </ul>
+
+  <div>
+    <h4>Interactive Risk-Return Plot</h4>
+    <div id="muSigmaPlot"></div>
+  </div>
+
+  <div class="mt-4">
+    <h4>Cumulative Returns</h4>
+    <div id="cumulativeReturns"></div>
+  </div>
+
+  <div class="mt-4">
+    <h4>Weight Allocation Bar Chart</h4>
+    <div id="weightBar"></div>
+  </div>
+
+  <a href="/" class="btn btn-secondary mt-4">Back to Home</a>
+
+  <script>
+    const weightLabels = {{ weights.keys()|list|tojson }};
+    const weightValues = {{ weights.values()|list|tojson }};
+
+    Plotly.newPlot('weightBar', [{
+      x: weightLabels,
+      y: weightValues,
+      type: 'bar',
+      marker: { color: '#28a745' }
+    }], {
+      title: 'ETF Weight Allocation (%)'
+    });
+
+    // Sample mu-sigma data based on strategy weight (for visual only)
+    Plotly.newPlot('muSigmaPlot', [{
+      x: [{{ sigma }}],
+      y: [{{ mu }}],
+      mode: 'markers+text',
+      type: 'scatter',
+      text: ['Your Portfolio'],
+      textposition: 'top center',
+      marker: { size: 12, color: '#007bff' }
+    }], {
+      title: 'Risk-Return Profile (μ-σ)',
+      xaxis: { title: 'Risk (σ%)' },
+      yaxis: { title: 'Return (%)' }
+    });
+
+    // Simulated cumulative return series for display
+    const cumulativeDates = ['2021-01', '2022-01', '2023-01', '2024-01', '2025-01'];
+    const cumulativeReturns = [100, 110, 130, 145, 160];
+
+    Plotly.newPlot('cumulativeReturns', [{
+      x: cumulativeDates,
+      y: cumulativeReturns,
+      type: 'scatter',
+      mode: 'lines+markers',
+      name: 'Portfolio'
+    }], {
+      title: 'Cumulative Portfolio Returns'
+    });
+  </script>
+</body>
+</html>
