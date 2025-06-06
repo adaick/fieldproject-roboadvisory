@@ -1,0 +1,57 @@
+<!-- portfolio.html - Portfolio Summary -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Summary</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans text-green-800">
+  <header class="bg-green-900 text-white px-6 py-4 flex justify-between items-center">
+    <span class="font-bold text-lg">Green Robo</span>
+    <nav class="space-x-6">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="login.html" class="hover:underline">Logout</a>
+    </nav>
+  </header>
+
+  <main class="px-6 py-8">
+    <h2 class="text-3xl italic font-semibold mb-6">Portfolio Summary</h2>
+    <p class="mb-4">Hello, Adarsh!</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div class="bg-green-400 text-white p-4 rounded">Expected Return<br/><strong>6.2%</strong></div>
+      <div class="bg-green-400 text-white p-4 rounded">Portfolio Risk<br/><strong>12.1%</strong></div>
+      <div class="bg-green-400 text-white p-4 rounded">Sharpe Ratio<br/><strong>0.51</strong></div>
+    </div>
+
+    <h3 class="font-bold mb-2">Portfolio Allocation</h3>
+    <ul class="mb-6">
+      <li class="mb-1">🟩 ETF 1</li>
+      <li class="mb-1">🟩 ETF 2</li>
+      <li class="mb-1">🟩 ETF 3</li>
+      <li class="mb-1">🟩 ETF 4</li>
+      <li class="mb-1">🟩 ETF 5</li>
+    </ul>
+
+    <h3 class="font-bold mb-2">Performance vs Benchmark</h3>
+    <div class="flex flex-col md:flex-row gap-4 mb-6">
+      <div class="bg-green-400 w-full h-40 rounded"></div>
+      <div class="bg-green-400 w-full h-40 rounded"></div>
+    </div>
+
+    <div class="flex flex-wrap gap-2 mb-6">
+      <span class="bg-green-300 px-4 py-1 rounded-full">Eco-Friendly</span>
+      <span class="bg-green-300 px-4 py-1 rounded-full">Low Volatility</span>
+      <span class="bg-green-300 px-4 py-1 rounded-full">High-Growth</span>
+      <span class="bg-green-300 px-4 py-1 rounded-full">Risk-Managed</span>
+    </div>
+
+    <div class="flex gap-4">
+      <a href="index.html" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Back to Home</a>
+      <a href="form.html" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Adjust Portfolio</a>
+    </div>
+  </main>
+</body>
+</html>
