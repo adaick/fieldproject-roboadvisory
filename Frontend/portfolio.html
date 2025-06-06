@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Summary</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-green-900 font-sans">
+
+  <!-- Header -->
+  <header class="bg-green-900 text-white px-6 py-4 flex justify-between items-center">
+    <a href="landingpage.html" class="font-bold text-lg hover:underline">
+      NAVA Your Green Robo Advisor
+    </a>
+    <div class="space-x-4 flex items-center">
+      <a href="landingpage.html" class="hover:underline">Home</a>
+      <a href="login.html" class="hover:underline">Logout</a>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="p-10 max-w-6xl mx-auto space-y-8">
+    <div class="flex justify-between items-start">
+      <div>
+        <h1 id="portfolioHeading" class="text-3xl italic font-semibold text-green-700 mb-2">
+          Portfolio Summary
+        </h1>
+        <p id="welcomeMessage" class="text-lg mb-6">Hello!</p>
+      </div>
+      <button class="bg-green-600 text-white px-4 py-2 rounded flex items-center gap-2 hover:bg-green-700">
+        <i data-lucide="file-text" class="w-5 h-5"></i>
+        Download PDF Report
+      </button>
+    </div>
+
+    <!-- Portfolio Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-green-400 text-white p-4 rounded shadow">
+        <p class="text-sm">Expected Return</p>
+        <p class="text-xl font-bold">6.2%</p>
+      </div>
+      <div class="bg-green-400 text-white p-4 rounded shadow">
+        <p class="text-sm">Portfolio Risk</p>
+        <p class="text-xl font-bold">12.1%</p>
+      </div>
+      <div class="bg-green-400 text-white p-4 rounded shadow">
+        <p class="text-sm">Sharpe Ratio</p>
+        <p class="text-xl font-bold">0.51</p>
+      </div>
+    </div>
+
+    <!-- Portfolio Allocation -->
+    <section>
+      <h2 class="font-semibold text-lg mb-2 mt-6">Portfolio Allocation</h2>
+      <ul class="list-disc ml-6 space-y-1">
+        <li>ETF 1</li>
+        <li>ETF 2</li>
+        <li>ETF 3</li>
+        <li>ETF 4</li>
+        <li>ETF 5</li>
+      </ul>
+    </section>
+
+    <!-- Charts -->
+    <section>
+      <h2 class="font-semibold text-lg mb-2 mt-6">Performance vs Benchmark</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-green-400 h-48 rounded shadow flex items-center justify-center text-white font-bold">Chart 1</div>
+        <div class="bg-green-400 h-48 rounded shadow flex items-center justify-center text-white font-bold">Chart 2</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- JavaScript to Personalize -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const name = localStorage.getItem('userName') || 'User';
+      document.getElementById('welcomeMessage').textContent = `Hello, ${name}!`;
+      document.getElementById('portfolioHeading').textContent = `${name}'s Portfolio Summary`;
+      lucide.createIcons();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-green-700 font-sans">
+
+  <!-- Grüner Balken mit Link zur Landingpage -->
+  <header class="bg-green-800 text-white px-6 py-4 flex justify-between items-center">
+    <a href="landingpage.html">
+      <h1 class="text-xl font-bold hover:underline">NAVA Your Green Robo Advisor</h1>
+    </a>
+  </header>
+
+  <!-- Registrierungsformular -->
+  <div class="flex justify-center items-center min-h-screen">
+    <form class="bg-white p-8 rounded-lg shadow-md w-full max-w-md space-y-6">
+      <h2 class="text-2xl font-semibold italic text-green-600">Register</h2>
+
+      <label>
+        Username:
+        <input type="text" class="w-full p-2 mt-1 bg-green-200 rounded" />
+      </label>
+
+      <label>
+        Email:
+        <input type="email" class="w-full p-2 mt-1 bg-green-200 rounded" />
+      </label>
+
+      <label>
+        Password:
+        <input type="password" class="w-full p-2 mt-1 bg-green-200 rounded" />
+      </label>
+
+      <label>
+        Confirm Password:
+        <input type="password" class="w-full p-2 mt-1 bg-green-200 rounded" />
+      </label>
+
+      <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition">
+        Register your account
+      </button>
+    </form>
+  </div>
+</body>
+</html>
