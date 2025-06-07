@@ -11,7 +11,7 @@
   <!-- Header -->
   <header class="bg-green-900 text-white px-6 py-4 flex justify-between items-center">
     <a href="landingpage.html" class="font-bold text-lg hover:underline">
-      NAVA Your Green Robo Advisor
+      NAVA Your Sustainable Robo Advisor
     </a>
     <nav class="space-x-4">
       <a href="landingpage.html" class="hover:underline">Home</a>
@@ -49,12 +49,35 @@
         </select>
       </label>
 
-      <label for="returnSlider" class="block">Expected Return:
-        <span id="sliderValue" class="font-bold ml-2">5%</span>
+      <label>
+        Expected Return:
+        <select id="returnChoice" onchange="toggleCustomSlider(this.value)"
+                class="w-full p-2 mt-1 bg-green-200 rounded">
+          <option>-- Select --</option>
+          <option>Low (benchmark -2σ)</option>
+          <option>Medium (benchmark)</option>
+          <option>High (benchmark +2σ)</option>
+          <option value="custom">Custom</option>
+        </select>
       </label>
-      <input type="range" id="returnSlider" min="1" max="15" value="5"
-             class="w-full appearance-none h-2 bg-green-300 rounded" 
-             oninput="updateSliderValue(this.value)" />
+
+      <!-- Custom Return Slider -->
+      <div id="customSliderBox" class="hidden">
+        <label for="returnSlider" class="block">
+          Custom Return: <span id="sliderValue" class="font-bold ml-2">5%</span>
+        </label>
+        <input type="range" id="returnSlider" min="1" max="15" value="5"
+               class="w-full appearance-none h-2 bg-green-300 rounded"
+               oninput="updateSliderValue(this.value)" />
+      </div>
+
+      <!-- Weighting Slider -->
+      <label class="block">
+        Custom Weighting: <span id="weightValue" class="font-bold ml-2">10%</span>
+      </label>
+      <input type="range" id="weightSlider" min="0" max="20" value="10"
+             class="w-full appearance-none h-2 bg-green-300 rounded"
+             oninput="updateWeightValue(this.value)" />
 
       <button type="submit"
               class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">
@@ -69,6 +92,19 @@
       document.getElementById('sliderValue').textContent = value + "%";
     }
 
+    function updateWeightValue(value) {
+      document.getElementById('weightValue').textContent = value + "%";
+    }
+
+    function toggleCustomSlider(value) {
+      const box = document.getElementById("customSliderBox");
+      if (value === "custom") {
+        box.classList.remove("hidden");
+      } else {
+        box.classList.add("hidden");
+      }
+    }
+
     function storeUserData(event) {
       event.preventDefault();
       const name = document.getElementById("username").value;
@@ -76,6 +112,6 @@
       window.location.href = "portfolio.html";
     }
   </script>
+
 </body>
 </html>
-
